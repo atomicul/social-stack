@@ -1,0 +1,12 @@
+{
+  "name": "social-stack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:atomicul/social-stack.git",
+  "author": "atomicul <soaremihai2006@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "daisyui": "^4.12.23",
+    "tailwindcss": "^3.4.17"
+  }
+}
