@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./compiled.css">
+    <title>${{ owner-name }}</title>
+    <meta name="description" content="${{ meta-description }}">
+</head>
+<body class="h-svh p-8 overflow-hidden">
+    <main class="mx-auto max-w-lg w-full h-full flex flex-col items-stretch gap-4 overflow-y-auto">
+        <section class="flex flex-col items-center">
+            <img 
+                class="size-24 mb-1 rounded-full border-2 border-primary"
+                src="${{ profile-picture }}"
+                alt="profile picture"
+            />
+            <h1 class="text-lg font-bold">${{ owner-name }}</h1>
+            <h2>${{ bio }}</h2>
+        </section>
+        <section class="flex flex-col items-stretch gap-2">
+            ${{ links }}
+        </section>
+    </main>
+</body>
+</html>

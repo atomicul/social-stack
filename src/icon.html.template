@@ -1,0 +1,4 @@
+<img class="size-8 absolute left-2 top-1/2 -translate-y-1/2" 
+    alt="link-icon" 
+    src="${{ icon }}"
+/>

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if (( $# != 2 )); then
+    echo "expected 2 positional arguments, but received $(( $# ))"
+    exit 1
+fi
+
+token="$1"
+replacement="$2"
+
+# replacement="$(
+#     sed 's/\\/\\&/g;s/&/\\&/g;s/\//\\&/g' <<< "$replacement"
+#     )"
+#
+regex='\${{\s*'
+regex+="$token"
+regex+='\s*}}'
+#
+# sed "s/$regex/$replacement/g" < /dev/stdin
+#
+awk -v r="$replacement" "{gsub(/$regex/,r)}1" < /dev/stdin

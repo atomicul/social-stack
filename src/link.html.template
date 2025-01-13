@@ -1,0 +1,8 @@
+<a 
+    href="${{ url }}"
+    class="btn btn-outline btn-primary relative"
+>
+    ${{ icon }}
+    ${{ name }}
+</a>
+

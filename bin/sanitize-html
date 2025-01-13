@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cat /dev/stdin \
+    | sed 's/&/\&amp/g' \
+    | sed 's/>/\&gt/g' \
+    | sed 's/</\&lt/g'

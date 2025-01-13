@@ -1,0 +1,50 @@
+#!/bin/bash
+
+which yq &> /dev/null
+if [[ $? -eq 1 ]]; then
+    echo 'This script depends on yq'
+    echo 'check it out here: https://github.com/mikefarah/yq'
+    exit 1
+fi
+
+cd "$(dirname $0)/..";
+
+rm -rf ./build
+mkdir ./build
+
+link_count=$(yq '.links | length' build-options.yml)
+links=""
+for i in $(seq 0 $(( $link_count-1 )));
+do
+    icon_src=$(yq ".links[$i].icon" build-options.yml)
+    if [ "$icon_src" == 'null' ]; then
+        icon=""
+    else
+        icon=$(bin/replace-token icon \
+        "$(echo $icon_src | bin/get-asset-path | bin/sanitize-string)" \
+        < src/icon.html.template
+        )
+    fi
+
+    link=$(
+        cat src/link.html.template \
+            | bin/replace-token name "$(yq ".links[$i].name" build-options.yml | bin/sanitize-html)" \
+            | bin/replace-token url "$(yq ".links[$i].url" build-options.yml | bin/sanitize-string)" \
+            | bin/replace-token icon "$icon"
+    )
+
+    links+=$link
+done
+
+cat src/index.html.template \
+ | bin/replace-token owner-name "$(yq .owner-name build-options.yml | bin/sanitize-html)" \
+ | bin/replace-token bio "$(yq .bio build-options.yml | bin/sanitize-html)" \
+ | bin/replace-token meta-description "$(yq .meta-description build-options.yml | bin/sanitize-string)" \
+ | bin/replace-token profile-picture \
+     "$(yq .profile-picture build-options.yml | bin/get-asset-path | bin/sanitize-string)" \
+ | bin/replace-token links "$links" \
+ > ./build/index.html
+
+cp -r src/assets build/assets
+cp src/main.css build/main.css
+npx tailwindcss -i build/main.css -o build/compiled.css &> /dev/null

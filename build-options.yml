@@ -1,0 +1,22 @@
+owner-name: Joe Mama
+profile-picture: /profile.webp
+meta-description: > 
+    A very hard-working and driven fellow with
+    a presence on multiple social platforms.
+bio: joemama@example.com
+links:
+  - name: LinkedIn
+    url: https://linkedin.com/
+    icon: /linkedin.svg
+
+  - name: Github
+    url: https://github.com/
+    icon: /github.svg
+
+  - name: Revolut
+    url: https://revolut.com/
+    icon: /revolut.svg
+
+  - name: PayPal
+    url: https://paypal.com/
+    icon: /paypal.svg

@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+import sys
+
+input = sys.stdin.read()
+input = input.strip()
+if input[0] == '/':
+    input = input[1:]
+if input[-1] == '/':
+    input = input[:-1]
+
+stack = []
+
+for str in input.split("/"):
+    if str == ".":
+        continue
+
+    if str == "..":
+        if stack:
+            stack.pop()
+        continue
+
+    stack.append(str)
+
+print("assets/" + "/".join(stack), end="")
