@@ -12,6 +12,7 @@ cd "$(dirname $0)/..";
 rm -rf ./build
 mkdir ./build
 
+echo 'building html file...'
 link_count=$(yq '.links | length' build-options.yml)
 links=""
 for i in $(seq 0 $(( $link_count-1 )));
@@ -45,6 +46,9 @@ cat src/index.html.template \
  | bin/replace-token links "$links" \
  > ./build/index.html
 
+echo 'copying assets'
 cp -r src/assets build/assets
+
+echo 'building tailwind utility classes'
 cp src/main.css build/main.css
-npx tailwindcss -i build/main.css -o build/compiled.css &> /dev/null
+npx tailwindcss -i build/main.css -o build/compiled.css > /dev/null
