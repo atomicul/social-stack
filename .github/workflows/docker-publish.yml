@@ -9,9 +9,10 @@ on:
   schedule:
     - cron: '18 23 * * *'
   push:
+    workflows: ["Release"]
     branches: [ "main", "develop" ]
-    # Publish semver tags as releases.
-    tags: [ 'v*.*.*' ]
+    types:
+      - completed
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -23,7 +24,6 @@ env:
 jobs:
   docker:
     runs-on: ubuntu-latest
-    needs: release
     permissions:
       contents: read
       packages: write
