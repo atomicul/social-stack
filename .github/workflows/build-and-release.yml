@@ -21,8 +21,10 @@ jobs:
       - name: Setup yq
         run: sudo snap install yq
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: Install yarn dependencies
+        uses: DerYeger/yarn-setup-action@master
+        with:
+          node-version: 22
 
       - name: Build html
         run: ./bin/compile-html
