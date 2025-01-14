@@ -9,7 +9,7 @@ links:
     url: https://linkedin.com/
     icon: /linkedin.svg
 
-  - name: Github
+  - name: GitHub
     url: https://github.com/
     icon: /github.svg
 
@@ -20,3 +20,35 @@ links:
   - name: PayPal
     url: https://paypal.com/
     icon: /paypal.svg
+
+  - name: Discord
+    url: https://discord.com/
+    icon: /discord.svg
+
+  - name: Snapchat
+    url: https://snapchat.com/
+    icon: /snapchat.svg
+
+  - name: TikTok
+    url: https://tiktok.com/
+    icon: /tiktok.svg
+
+  - name: YouTube
+    url: https://youtube.com/
+    icon: /youtube.svg
+
+  - name: Facebook
+    url: https://facebook.com/
+    icon: /facebook.svg
+
+  - name: Instagram
+    url: https://instagram.com/
+    icon: /instagram.svg
+
+  - name: Steam
+    url: https://steamcommunity.com/
+    icon: /steam.svg
+
+  - name: X
+    url: https://x.com/
+    icon: /x.svg

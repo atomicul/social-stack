@@ -8,3 +8,4 @@
 
 # v0.2.0
 * Add build and release github action
+* Add other social platforms
