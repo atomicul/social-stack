@@ -8,7 +8,7 @@ name: Docker
 on:
   schedule:
     - cron: '18 23 * * *'
-  push:
+  workflow_run:
     workflows: ["Release"]
     branches: [ "main", "develop" ]
     types:
