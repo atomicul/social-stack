@@ -10,19 +10,8 @@ env:
 
 
 jobs:
-  tag:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-        - 12
-    steps:
-    - uses: phish108/autotag-action@v1.1.55
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
   build:
     runs-on: ubuntu-latest
-    needs: tag
 
     permissions:
       packages: write
@@ -41,10 +30,6 @@ jobs:
       - name: Archive html
         run: zip -r html.zip build/*
       - name: Release project
-        uses: "marvinpinto/action-automatic-releases@latest"
-        with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          files: |
-            html.zip
-            LICENSE.txt
+        uses: CupOfTea696/gh-action-auto-release@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
