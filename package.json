@@ -1,6 +1,6 @@
 {
   "name": "social-stack",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": "git@github.com:atomicul/social-stack.git",
   "author": "atomicul <soaremihai2006@gmail.com>",

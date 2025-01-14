@@ -25,31 +25,17 @@ jobs:
         uses: DerYeger/yarn-setup-action@master
         with:
           node-version: 22
-
+      - name: Tag commit
+        uses: Klemensas/action-autotag@stable
       - name: Build html
         run: ./bin/compile-html
-
-      - name: Get tag from commit
-        id: get_tag
-        run: |-
-          echo "::set-output name=tag::$(grep -Eo $regex <<< $commit_msg)"
-          echo "::set-output name=success::$?"
-        env: 
-          regex: >
-            "(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)
-            (?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)
-            (?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))
-            *))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$"
-
-      - name: Exit on failure to get tag
-        if: steps.get_tag.outputs.success != 0
-        run: exit 1
-
+      - name: Archive html
+        run: zip -r html.zip build/*
       - name: Release project
-        uses: elgohr/Github-Release-Action@v5
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          title: Release ${{ steps.get_tag.outputs.tag }}
-          tag: ${{ steps.get_tag.outputs.tag }}
-          workdir: build
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            html.zip
+            LICENSE.txt
