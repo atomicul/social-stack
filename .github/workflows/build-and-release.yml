@@ -27,6 +27,8 @@ jobs:
           node-version: 22
       - name: Tag commit
         uses: Klemensas/action-autotag@stable
+        with:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - name: Build html
         run: ./bin/compile-html
       - name: Archive html
