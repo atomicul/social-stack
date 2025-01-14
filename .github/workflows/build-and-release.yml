@@ -17,37 +17,37 @@ jobs:
     packages: write
     contents: write
 
-    steps:
-      - name: Setup yq
-        uses: chrisdickinson/setup-yq@1.0.0
+  steps:
+    - name: Setup yq
+      uses: chrisdickinson/setup-yq@1.0.0
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Build html
-        run: ./bin/compile-html
+    - name: Build html
+      run: ./bin/compile-html
 
-      - name: Get tag from commit
-        id: get_tag
-        run: |-
-          echo "::set-output name=tag::$(grep -Eo $regex <<< $commit_msg)"
-          echo "::set-output name=success::$?"
-        env: 
-          regex: >
-            "(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)
-            (?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)
-            (?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))
-            *))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$"
+    - name: Get tag from commit
+      id: get_tag
+      run: |-
+        echo "::set-output name=tag::$(grep -Eo $regex <<< $commit_msg)"
+        echo "::set-output name=success::$?"
+      env: 
+        regex: >
+          "(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)
+          (?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)
+          (?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))
+          *))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$"
 
-      - name: Exit on failure to get tag
-        if: steps.get_tag.outputs.success != 0
-        run: exit 1
+    - name: Exit on failure to get tag
+      if: steps.get_tag.outputs.success != 0
+      run: exit 1
 
-      - name: Release project
-        uses: elgohr/Github-Release-Action@v5
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          title: Release ${{ steps.get_tag.outputs.tag }}
-          tag: ${{ steps.get_tag.outputs.tag }}
-          wokdir: build
+    - name: Release project
+      uses: elgohr/Github-Release-Action@v5
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        title: Release ${{ steps.get_tag.outputs.tag }}
+        tag: ${{ steps.get_tag.outputs.tag }}
+        wokdir: build
