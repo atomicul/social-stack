@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Setup yq
-        uses: chrisdickinson/setup-yq@latest
+        run: snap install yq
 
       - name: Checkout repository
         uses: actions/checkout@v4
