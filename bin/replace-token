@@ -16,4 +16,4 @@ regex='\${{\s*'
 regex+="$token"
 regex+='\s*}}'
 
-awk -v r="$replacement" "{gsub(/$regex/,r)}1" < /dev/stdin
+gawk -v r="$replacement" "{gsub(/$regex/,r)}1" < /dev/stdin
