@@ -5,3 +5,6 @@
 * Add logging to stdout in the build script
 * Add dockerfile
 * Add docker build and publish github action
+
+# v0.2.0
+* Add build and release github action
