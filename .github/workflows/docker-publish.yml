@@ -6,11 +6,9 @@ name: Docker
 # documentation.
 
 on:
-  schedule:
-    - cron: '18 23 * * *'
   workflow_run:
-    workflows: ["Release"]
-    branches: [ "main", "develop" ]
+    workflows: [Release]
+    branches: [main, develop]
     types:
       - completed
 
