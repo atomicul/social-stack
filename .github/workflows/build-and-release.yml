@@ -10,8 +10,19 @@ env:
 
 
 jobs:
+  tag:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+        - 12
+    steps:
+    - uses: phish108/autotag-action@v1.1.55
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
   build:
     runs-on: ubuntu-latest
+    needs: tag
 
     permissions:
       packages: write
@@ -25,10 +36,6 @@ jobs:
         uses: DerYeger/yarn-setup-action@master
         with:
           node-version: 22
-      - name: Tag commit
-        uses: Klemensas/action-autotag@stable
-        with:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
       - name: Build html
         run: ./bin/compile-html
       - name: Archive html
