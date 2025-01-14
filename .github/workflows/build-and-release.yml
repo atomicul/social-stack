@@ -19,7 +19,7 @@ jobs:
 
     steps:
       - name: Setup yq
-        uses: chrisdickinson/setup-yq@1.0.0
+        uses: chrisdickinson/setup-yq@latest
 
       - name: Checkout repository
         uses: actions/checkout@v4
