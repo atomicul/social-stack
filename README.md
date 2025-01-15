@@ -16,11 +16,11 @@ just fork the repo and modify the configs
 
 ## Configuring
 Tweak `build-options.yml` to customize your page; this example configuration is\
-available [here](https://atomicul.github.io/social-stack)
+available [here](https://atomicul.github.io/social-stack).
 
 Assets must be stored in `src/assets`, and they should be referenced either with\
 an absolute path, i.e., `/<ASSET>`, or with a relative path, i.e., `./<ASSET>`, both\
-of which refer to the file `src/assets/<ASSET>`
+of which refer to the file `src/assets/<ASSET>`.
 
 The `meta-description` property is the one you would set with a `<meta>` tag in\
 the head section of the HTML document. For better context of the properties, check\
