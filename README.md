@@ -34,8 +34,9 @@ Because of this reason, not all properties are sanitized the same way. For a bet
 understanding of how the build system works, check out `bin/compile-html`.
 
 Themes can be changed in `tailwind.config.js`. Refer to the\
-[daisyUI](https://v4.daisyui.com/docs/themes) documentation for details.\
-The example assets are colored specifically for the 'aqua' theme.
+[daisyUI](https://v4.daisyui.com/docs/themes) documentation\
+for details. The example assets are colored specifically for\
+the 'aqua' theme.
 
 ## Building
 ### GitHub Actions
