@@ -19,3 +19,6 @@
 
 # v1.0.0-beta1
 * Document the project
+
+# v1.0.0-beta2
+* Fix links to the same README document

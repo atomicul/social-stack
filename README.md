@@ -8,11 +8,11 @@ just fork the repo and modify the configs
 * ⚙️ Easily configurable, single yaml file holds all build options
 
 ## Index
-* [Configuring](configuring)
-* [Building](building)
-    * [GitHub Actions](github-actions)
-    * [Docker](docker)
-    * [Build HTML in a Linux shell](build-html-in-a-linux-shell)
+* [Configuring](#configuring)
+* [Building](#building)
+    * [GitHub Actions](#github-actions)
+    * [Docker](#docker)
+    * [Build HTML in a Linux shell](#build-html-in-a-linux-shell)
 
 ## Configuring
 Tweak `build-options.yml` to customize your page, this example configuration is\
@@ -42,7 +42,7 @@ Instructions below:
 1. Fork the repository
 2. Enable GitHub Actions
 3. Enable deployment to GitHub pages from Actions (if needed)
-4. Make [configuring](configuring) changes as needed
+4. Make [configuring](#configuring) changes as needed
 5. Push the changes to main
 
 This will trigger the workflows in `.github/workflows` and GitHub will release\
@@ -50,13 +50,13 @@ and deploy the project for you.
 
 ### Docker
 Instructions below:
-1. Make [configuring](configuring) changes as needed
+1. Make [configuring](#configuring) changes as needed
 2. Build docker container: `docker build -t <TAG> .`
 3. Run the container: `docker run -it -p '<PORT>:80' <TAG>`
 
 ### Build HTML in a Linux shell
 Instructions below:
-1. Make [configuring](configuring) changes as needed
+1. Make [configuring](#configuring) changes as needed
 2. Install JavaScript build dependencies: `yarn` (requires NodeJS and Yarn)
 3. Install [yq](https://github.com/mikefarah/yq) yaml parser
 4. Run the build script: `bin/compile-html`
