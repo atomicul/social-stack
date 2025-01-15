@@ -20,6 +20,7 @@
 # v1.0.0-beta1
 * Document the project
 
-# v1.0.0-beta2
+# v1.0.0
 * Fix links to the same README document
 * Fix some typing errors in README
+* Fix line breaks in README being treated treated literally
