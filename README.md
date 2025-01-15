@@ -48,7 +48,18 @@ Instructions below:
 2. Enable GitHub Actions
 3. Enable deployment to GitHub Pages from Actions (if needed)
 4. Make [configuring](#configuring) changes as needed
-5. Push the changes to main
+5. Push the changes to main. The commit message must include
+a [semver](https://semver.org/) string. You must also update the CHANGELOG.
+For example, run:
+```bash
+VERSION='v69.0.0' MESSAGE="Configure Social Stack" \
+bash << 'EOF'
+echo "# $VERSION" $'\n' "* $MESSAGE" >> CHANGELOG.md && \
+git add . && \
+git commit -m "$MESSAGE $VERSION" && \
+git push
+EOF
+```
 
 This will trigger the workflows in `.github/workflows`, and GitHub will release
 and deploy the project for you.
