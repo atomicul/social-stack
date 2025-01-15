@@ -63,7 +63,7 @@ Instructions below:
 Instructions below:
 1. Make [configuring](#configuring) changes as needed
 2. Install JavaScript build dependencies: `yarn` (requires NodeJS and Yarn)
-3. Install [yq](https://github.com/mikefarah/yq) YAML parser
+3. Install [yq](https://github.com/mikefarah/yq) the YAML parser
 4. Run the build script: `bin/compile-html`
 
 This creates a new directory, `build`, containing the HTML, CSS, and asset files.
