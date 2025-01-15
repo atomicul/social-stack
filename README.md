@@ -10,9 +10,9 @@ just fork the repo and modify the configs
 ## Index
 * [Configuring](#configuring)
 * [Building](#building)
-    * [GitHub Actions](#github-actions)
-    * [Docker](#docker)
-    * [Build HTML in a Linux shell](#build-html-in-a-linux-shell)
+    * [GitHub Actions](#github-actions)
+    * [Docker](#docker)
+    * [Build HTML in a Linux shell](#build-html-in-a-linux-shell)
 
 ## Configuring
 Tweak `build-options.yml` to customize your page; this example configuration is\
